@@ -18,13 +18,13 @@ jobs:
   # This workflow contains a single job called "build"
   build:
     # The type of runner that the job will run on
-    runs-on: test124
+    runs-on: lindluni-test
+    strategy:
+      matrix:
+        version: [10, 12, 14, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+        os: [ubuntu-latest, windows-latest, 1, 2, 3, 4, 5, 6]
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v4
-
-      # Runs a single command using the runners shell
-      - name: Run a one-line script
-        uses: department-of-veterans-affairs/codeql-tools/codeql-analysis@main
